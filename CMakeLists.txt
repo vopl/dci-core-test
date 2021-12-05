@@ -11,4 +11,7 @@ file(GLOB_RECURSE CMM cmakeModules/*)
 ############################################################
 add_library(${UNAME} SHARED ${INC} ${SRC} ${CMM})
 dciIntegrationSetupTarget(${UNAME})
-target_link_libraries(${UNAME} PUBLIC gtest)
+
+############################################################
+find_package(GTest REQUIRED)
+target_link_libraries(${UNAME} PUBLIC GTest::gtest)
